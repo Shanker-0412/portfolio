@@ -12,7 +12,7 @@ html, body {
 body {
     background-color: #0a1f3b;
     color: #ffffff;
-    padding-top: 60px; /* Adjust for fixed nav */
+    padding-top: 60px;
 }
 
 .container {
@@ -82,14 +82,12 @@ section {
 h1 {
     font-size: 4rem;
     margin-bottom: 1rem;
-    opacity: 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    opacity: 0;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
@@ -97,7 +95,6 @@ p {
     font-size: 1.2rem;
     line-height: 1.6;
     margin-bottom: 2rem;
-    opacity: 0;
 }
 
 .btn {
@@ -109,7 +106,6 @@ p {
     font-weight: 600;
     border-radius: 5px;
     transition: all 0.3s ease;
-    opacity: 0;
     position: relative;
     overflow: hidden;
 }
@@ -156,7 +152,6 @@ p {
     border-radius: 50%;
     margin: 0 1rem;
     transition: all 0.3s ease;
-    opacity: 0;
     position: relative;
     overflow: hidden;
 }
@@ -264,6 +259,106 @@ p {
         transform: translate(500px, 500px) rotate(-45deg) scale(1);
         opacity: 0;
     }
+}
+
+/* Certificates Section Styles */
+#certificates {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 4rem 0;
+}
+
+.certificate-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.certificate {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.certificate:hover {
+    transform: translateY(-5px);
+}
+
+.certificate-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.certificate-info {
+    padding: 1rem;
+}
+
+.certificate-info h3 {
+    font-size: 1.2rem;
+    color: #ffd700;
+    margin-bottom: 0.5rem;
+}
+
+.certificate-info p {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.view-certificate {
+    background-color: #ffd700;
+    color: #0a1f3b;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.view-certificate:hover {
+    background-color: #ffffff;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+    margin: 5% auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 800px;
+    position: relative;
+}
+
+.close {
+    color: #fff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #ffd700;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#modal-certificate-image {
+    width: 100%;
+    height: auto;
 }
 
 @media screen and (max-width: 768px) {

@@ -87,11 +87,12 @@ function createSky(containerId) {
         camera.updateProjectionMatrix();
         renderer.setSize(newWidth, newHeight);
     });
+
+    renderer.setClearColor(0x000000, 0);
 }
 
 createSky('bg');
 
-// Stardust effect
 function createStardust() {
     const stardustContainer = document.getElementById('stardust');
     const numStars = 100;
@@ -111,7 +112,6 @@ function createStardust() {
 
 createStardust();
 
-// Shooting star effect
 function createShootingStar() {
     const star = document.createElement('div');
     star.className = 'shooting-star';
@@ -127,17 +127,19 @@ function createShootingStar() {
 
 setInterval(createShootingStar, 6000);
 
-// Smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
     });
 });
 
-// Social links hover effect
 const socialLinks = document.querySelectorAll('.social-link');
 socialLinks.forEach(link => {
     link.addEventListener('mouseover', () => {
@@ -148,7 +150,6 @@ socialLinks.forEach(link => {
     });
 });
 
-// Parallax scrolling effect
 gsap.utils.toArray("section").forEach((section, i) => {
     const bg = section.querySelector(".container");
     

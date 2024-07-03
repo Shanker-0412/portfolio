@@ -140,6 +140,22 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+gsap.utils.toArray("#certificates .certificate").forEach(cert => {
+    gsap.fromTo(cert, 
+        { y: 50, opacity: 0 },
+        {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            scrollTrigger: {
+                trigger: cert,
+                start: "top bottom-=100",
+                toggleActions: "play none none reverse"
+            }
+        }
+    );
+});
+
 const socialLinks = document.querySelectorAll('.social-link');
 socialLinks.forEach(link => {
     link.addEventListener('mouseover', () => {
@@ -167,3 +183,36 @@ gsap.utils.toArray("section").forEach((section, i) => {
         }
     });
 });
+
+var modal = document.getElementById("certificate-modal");
+var modalImg = document.getElementById("modal-certificate-image");
+var viewButtons = document.getElementsByClassName("view-certificate");
+var span = document.getElementsByClassName("close")[0];
+
+function openModal() {
+    gsap.fromTo(modal, 
+        { opacity: 0 },
+        { opacity: 1, duration: 0.3, display: 'block' }
+    );
+}
+
+function closeModal() {
+    gsap.to(modal, 
+        { opacity: 0, duration: 0.3, onComplete: () => modal.style.display = 'none' }
+    );
+}
+
+for (var i = 0; i < viewButtons.length; i++) {
+    viewButtons[i].onclick = function() {
+        modalImg.src = this.parentElement.parentElement.querySelector(".certificate-image").src;
+        openModal();
+    }
+}
+
+span.onclick = closeModal;
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        closeModal();
+    }
+}

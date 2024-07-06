@@ -1,38 +1,4 @@
-gsap.registerPlugin(ScrollTrigger);
-
-const sections = gsap.utils.toArray('section');
-sections.forEach((section, index) => {
-    const elements = section.querySelectorAll('h1, h2, p, .btn, .social-link');
-    
-    gsap.fromTo(elements, 
-        { y: 100, opacity: 0 },
-        {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            stagger: 0.2,
-            ease: 'power3.out',
-            scrollTrigger: {
-                trigger: section,
-                start: 'top bottom',
-                end: 'bottom top',
-                toggleActions: 'play none none reverse'
-            }
-        }
-    );
-});
-
-gsap.to('nav', {
-    scrollTrigger: {
-        trigger: 'body',
-        start: 'top top',
-        end: 'bottom bottom',
-        toggleActions: 'play none none reverse'
-    },
-    backgroundColor: 'rgba(10, 31, 59, 0.8)',
-    duration: 0.5
-});
-
+// Create starry background
 function createSky(containerId) {
     const container = document.getElementById(containerId);
     const width = window.innerWidth;
@@ -49,7 +15,7 @@ function createSky(containerId) {
     const starsMaterial = new THREE.PointsMaterial({ color: 0xffffff, size: 0.1 });
 
     const starsVertices = [];
-    for (let i = 0; i < 15000; i++) {
+    for (let i = 0; i < 20000; i++) {
         const x = (Math.random() - 0.5) * 2000;
         const y = (Math.random() - 0.5) * 2000;
         const z = -Math.random() * 2000;
@@ -60,7 +26,7 @@ function createSky(containerId) {
     const stars = new THREE.Points(starsGeometry, starsMaterial);
     scene.add(stars);
 
-    const startColor = new THREE.Color('#0a1f3b');
+    const startColor = new THREE.Color('#0A0A0A');
     const endColor = new THREE.Color('#000000');
     let skyColor = startColor.clone();
 
@@ -93,40 +59,7 @@ function createSky(containerId) {
 
 createSky('bg');
 
-function createStardust() {
-    const stardustContainer = document.getElementById('stardust');
-    const numStars = 100;
-
-    for (let i = 0; i < numStars; i++) {
-        const star = document.createElement('div');
-        star.className = 'stardust-particle';
-        star.style.width = `${Math.random() * 2 + 1}px`;
-        star.style.height = star.style.width;
-        star.style.left = `${Math.random() * 100}%`;
-        star.style.top = `${Math.random() * 100}%`;
-        star.style.opacity = Math.random();
-        star.style.animation = `twinkle ${Math.random() * 5 + 5}s linear infinite`;
-        stardustContainer.appendChild(star);
-    }
-}
-
-createStardust();
-
-function createShootingStar() {
-    const star = document.createElement('div');
-    star.className = 'shooting-star';
-    star.style.left = `${Math.random() * 100}%`;
-    star.style.top = `${Math.random() * 100}%`;
-    document.body.appendChild(star);
-
-    setTimeout(() => {
-        star.remove();
-        createShootingStar();
-    }, 3000);
-}
-
-setInterval(createShootingStar, 6000);
-
+// Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -134,72 +67,47 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
             targetElement.scrollIntoView({
-                behavior: 'smooth'
+                behavior: 'smooth',
+                block: 'start'
             });
         }
     });
 });
 
-gsap.utils.toArray("#certificates .certificate").forEach(cert => {
-    gsap.fromTo(cert, 
-        { y: 50, opacity: 0 },
-        {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            scrollTrigger: {
-                trigger: cert,
-                start: "top bottom-=100",
-                toggleActions: "play none none reverse"
-            }
+// Active section highlighting
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav ul li a");
+
+window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop - sectionHeight / 3) {
+            current = section.getAttribute("id");
         }
-    );
-});
-
-const socialLinks = document.querySelectorAll('.social-link');
-socialLinks.forEach(link => {
-    link.addEventListener('mouseover', () => {
-        gsap.to(link, { scale: 1.2, duration: 0.3, ease: 'power2.out' });
     });
-    link.addEventListener('mouseout', () => {
-        gsap.to(link, { scale: 1, duration: 0.3, ease: 'power2.out' });
-    });
-});
 
-gsap.utils.toArray("section").forEach((section, i) => {
-    const bg = section.querySelector(".container");
-    
-    gsap.fromTo(bg, {
-        backgroundPosition: () => i ? `50% ${-window.innerHeight / 2}px` : "50% 0px"
-    }, {
-        backgroundPosition: () => `50% ${window.innerHeight / 2}px`,
-        ease: "none",
-        scrollTrigger: {
-            trigger: section,
-            start: () => i ? "top bottom" : "top top",
-            end: "bottom top",
-            scrub: true,
-            invalidateOnRefresh: true
+    navLinks.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href").slice(1) === current) {
+            link.classList.add("active");
         }
     });
 });
 
+// Certificate modal functionality
 var modal = document.getElementById("certificate-modal");
 var modalImg = document.getElementById("modal-certificate-image");
 var viewButtons = document.getElementsByClassName("view-certificate");
 var span = document.getElementsByClassName("close")[0];
 
 function openModal() {
-    gsap.fromTo(modal, 
-        { opacity: 0 },
-        { opacity: 1, duration: 0.3, display: 'block' }
-    );
+    modal.style.display = "block";
 }
 
 function closeModal() {
-    gsap.to(modal, 
-        { opacity: 0, duration: 0.3, onComplete: () => modal.style.display = 'none' }
-    );
+    modal.style.display = "none";
 }
 
 for (var i = 0; i < viewButtons.length; i++) {
@@ -216,3 +124,13 @@ window.onclick = function(event) {
         closeModal();
     }
 }
+
+// Social link animations
+document.querySelectorAll('.social-link').forEach(link => {
+    link.addEventListener('mouseenter', () => {
+        link.style.transform = 'scale(1.2)';
+    });
+    link.addEventListener('mouseleave', () => {
+        link.style.transform = 'scale(1)';
+    });
+});

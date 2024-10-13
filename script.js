@@ -76,25 +76,19 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Active section highlighting
 const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll("nav ul li a");
+const navLinks = document.querySelectorAll(".nav-link");
 
-window.addEventListener("scroll", () => {
-    let current = "";
-    sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop - sectionHeight / 3) {
-            current = section.getAttribute("id");
-        }
-    });
+function setActiveLink() {
+    let index = sections.length;
 
-    navLinks.forEach((link) => {
-        link.classList.remove("active");
-        if (link.getAttribute("href").slice(1) === current) {
-            link.classList.add("active");
-        }
-    });
-});
+    while(--index && window.scrollY + 50 < sections[index].offsetTop) {}
+    
+    navLinks.forEach((link) => link.classList.remove('active'));
+    navLinks[index].classList.add('active');
+}
+
+setActiveLink();
+window.addEventListener('scroll', setActiveLink);
 
 // Certificate modal functionality
 var modal = document.getElementById("certificate-modal");

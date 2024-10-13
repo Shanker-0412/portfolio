@@ -64,7 +64,11 @@ nav ul li a {
     transition: color 0.3s ease;
 }
 
-nav ul li a:hover, nav ul li a.active {
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+nav ul li a.active {
     color: var(--accent-color);
 }
 
@@ -181,9 +185,19 @@ p {
     left: -10px;
 }
 
+/* Updated styles for Experience and Projects sections */
 .timeline-item h4 {
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    margin-bottom: 0.3rem;
+    color: var(--accent-color);
+}
+
+.timeline-item h4 + p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
     color: var(--text-color);
 }
 
@@ -365,6 +379,14 @@ p {
     .timeline-item:nth-child(even) {
         left: 0%;
     }
+
+    .timeline-item h4 {
+        font-size: 1.2rem;
+    }
+
+    .timeline-item h4 + p {
+        font-size: 1rem;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -388,6 +410,14 @@ p {
     .social-link img {
         width: 25px;
         height: 25px;
+    }
+
+    .timeline-item h4 {
+        font-size: 1.1rem;
+    }
+
+    .timeline-item h4 + p {
+        font-size: 0.9rem;
     }
 }
 
@@ -429,11 +459,6 @@ p {
 
 .slide-in-right {
     animation: slideInFromRight 1s ease-out;
-}
-
-/* Scroll behavior */
-html {
-    scroll-behavior: smooth;
 }
 
 /* Custom scrollbar */

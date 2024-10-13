@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gouri Shanker Reddy - AI/ML Student Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <title>Gouri Shanker Reddy - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -18,67 +17,123 @@
         </ul>
     </nav>
 
-    <div class="background-animation" id="bg"></div>
+    <div id="bg" class="background-animation"></div>
 
-    <section id="home">
+    <section id="home" class="section">
         <div class="container">
             <h1>Gouri Shanker Reddy</h1>
             <h2>Freelancer / Student - AIML</h2>
             <p>+91 90635 20372 | Hyderabad, Telangana | gourishanker989@gmail.com</p>
-            <a href="#resume" class="btn">View Resume</a>
+            <a href="/resume/GouriShankerReddyResume.pdf" target="_blank" class="btn">View Resume</a>
         </div>
     </section>
 
-    <section id="resume">
+    <section id="resume" class="section">
         <div class="container">
             <div class="timeline">
                 <div class="timeline-item">
                     <h3>Profile</h3>
                     <p>Ambitious second-year CSE-AIML undergraduate with a passion for innovative software solutions. Seeking challenging opportunities to apply technical expertise and problem-solving skills.</p>
                 </div>
+
                 <div class="timeline-item">
                     <h3>Technical Skills</h3>
                     <ul>
-                        <li>Programming: C++, Python, JavaScript; familiar with JAVA and Go</li>
+                        <li>Programming: C++, Python, JavaScript, Java</li>
                         <li>Web: HTML5, CSS3, React.js, Node.js, Express.js</li>
                         <li>Frameworks: Spring Boot, Bootstrap</li>
                         <li>Databases: MySQL, MongoDB</li>
                         <li>Tools: Git, GitHub, Jenkins (basic), Docker (basic)</li>
                         <li>Methodologies: Agile/Scrum, TDD</li>
+                        <li>Machine Learning: Scikit-learn, Pandas, NLTK</li>
                     </ul>
                 </div>
+
+                <div class="timeline-item">
+                    <h3>Experience</h3>
+                    <h4>Machine Learning for Data Prediction (Hackathon project)</h4>
+                    <p>Amazon | 09/2024 - 09/2024 | Hyderabad</p>
+                    <ul>
+                        <li>Developed a sophisticated machine learning model to predict missing information in large datasets</li>
+                        <li>Utilized Python, Pandas, and Scikit-learn to process and analyze bulk data</li>
+                        <li>Implemented feature engineering and selection methods to improve model accuracy and efficiency</li>
+                        <li>Attained 85% prediction accuracy on test data</li>
+                    </ul>
+
+                    <h4>Algorithmic Trading Bot (Hackathon Project)</h4>
+                    <p>In Campus | 07/2023 - 07/2023 | Hyderabad</p>
+                    <ul>
+                        <li>Developed an innovative trading algorithm leveraging historical stock data and sentiment analysis from social media</li>
+                        <li>Utilized Python, pandas, and NLTK for data processing and natural language processing tasks</li>
+                        <li>Attained 15% better returns compared to buy-and-hold strategy in backtesting</li>
+                    </ul>
+
+                    <h4>Google Chrome Built-in AI Challenge</h4>
+                    <p>Google | 10/2024 - Present | Hyderabad</p>
+                    <ul>
+                        <li>Building a Chrome extension to summarize emails and generate AI replies</li>
+                        <li>Enabling users to edit and send replies, handling up to 1,000 API calls per day</li>
+                    </ul>
+                </div>
+
                 <div class="timeline-item">
                     <h3>Projects</h3>
-                    <h4>E-Commerce Web Application</h4>
+                    <h4>Full-Stack E-Commerce Platform</h4>
+                    <p>05/2023 | Hyderabad</p>
                     <ul>
-                        <li>Developed responsive e-commerce site using React.js and Node.js</li>
-                        <li>Implemented user auth, product catalog, cart, and order processing</li>
-                        <li>Used Redux for state management and integrated RESTful API</li>
+                        <li>Developed a responsive e-commerce site with React, Node.js, and Redux, improving load time by 30% and data speed by 40%</li>
+                        <li>Implemented authentication, product catalog, shopping cart, and order processing features</li>
+                        <li>Managed state effectively with Redux and integrated RESTful APIs</li>
                     </ul>
-                    <h4>Library Management System</h4>
-                    <ul>
-                        <li>Built full-stack system using Java Spring Boot and MySQL</li>
-                        <li>Created microservices for user, inventory, and lending operations</li>
-                        <li>Achieved 80%+ code coverage with JUnit and Mockito tests</li>
-                    </ul>
+
                     <h4>Weather Forecast Dashboard</h4>
+                    <p>08/2023 | Hyderabad</p>
                     <ul>
-                        <li>Engineered dashboard using JavaScript and OpenWeatherMap API</li>
-                        <li>Applied Agile methodologies for project management</li>
-                        <li>Optimized performance, reducing API calls by 40%</li>
+                        <li>Created an interactive dashboard with JavaScript, optimizing API calls by 40%</li>
+                        <li>Utilized OpenWeatherMap API to provide real-time weather updates</li>
+                        <li>Collaborated within an Agile team to complete development sprints</li>
+                    </ul>
+
+                    <h4>Personal Portfolio Website</h4>
+                    <p>02/2024 | Hyderabad</p>
+                    <ul>
+                        <li>Developed a responsive site using React.js, Bootstrap, and Three.js, achieving a 95 PageSpeed Insights score</li>
+                        <li>Implemented CI/CD using GitHub Actions to streamline deployment</li>
+                    </ul>
+
+                    <h4>Job Application Tracker (Browser Extension)</h4>
+                    <p>03/2024 | Hyderabad</p>
+                    <ul>
+                        <li>Built a job tracking extension with a secure back-end and intuitive UI, reducing API calls by 60% for 100 users</li>
+                    </ul>
+
+                    <h4>RESTful API for Content Management</h4>
+                    <p>05/2024 | Hyderabad</p>
+                    <ul>
+                        <li>Developed a scalable Node.js API with JWT authentication and 90% test coverage using Mocha and Chai</li>
+                    </ul>
+
+                    <h4>Library Management System</h4>
+                    <p>07/2024 | Hyderabad</p>
+                    <ul>
+                        <li>Built a Java Spring Boot system with microservices and 80% code coverage</li>
                     </ul>
                 </div>
+
                 <div class="timeline-item">
                     <h3>Achievements</h3>
                     <ul>
-                        <li>Top 10% on LeetCode (200+ problems solved)</li>
-                        <li>2nd place, University-level Coding Marathon (2023)</li>
+                        <li>2nd place, University-level Coding Marathon 2023</li>
+                        <li>Ranked 194 in Amazon ML hackathon of total participation list 1,50,000 2024</li>
+                        <li>Ranked in the top 10% on LeetCode (200+ problems solved)</li>
                     </ul>
                 </div>
+
                 <div class="timeline-item">
                     <h3>Education</h3>
                     <p>CSE-AIML, GNI (GURU NANAK INSTITUTIONS), 2022-2026</p>
                 </div>
+
                 <div class="timeline-item">
                     <h3>Languages</h3>
                     <p>English, Hindi, Telugu</p>
@@ -87,12 +142,12 @@
         </div>
     </section>
 
-    <section id="certificates">
+    <section id="certificates" class="section">
         <div class="container">
             <h2>Certificates</h2>
             <div class="certificate-list">
                 <div class="certificate">
-                    <img src="images/certificate_isro.jpg" alt="Certificate" class="certificate-image">
+                    <img src="images/certificate_isro.jpg" alt="ISRO Certificate" class="certificate-image">
                     <div class="certificate-info">
                         <h3>Geodata Processing using Python</h3>
                         <p>Issued by: Indian Institute of Remote Sensing (IIRS)</p>
@@ -100,12 +155,11 @@
                         <button class="view-certificate">View Certificate</button>
                     </div>
                 </div>
-                
             </div>
         </div>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="section">
         <div class="container">
             <h2>Get in Touch</h2>
             <p>Let's connect and discuss how we can work together under the starry sky.</p>
@@ -127,6 +181,7 @@
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
